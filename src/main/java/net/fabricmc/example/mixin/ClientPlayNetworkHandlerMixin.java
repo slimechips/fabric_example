@@ -48,12 +48,18 @@ public abstract class ClientPlayNetworkHandlerMixin implements HostTransfer {
     public void onDisconnect(DisconnectS2CPacket packet) {
         this.connection.disconnect(packet.getReason());
         LOGGER.info("Checking for Host Transfer Disconnect");
-        if (packet.getReason() == null) return;
+        if (packet.getReason() == null)
+        {
+            this.hostIp = null;
+            return;
+        }
         String[] reason = packet.getReason().asString().split("=");
         if (reason[0].equals("host_transfer") && reason.length == 2)
         {
             LOGGER.info("Initiating host transfer to" + reason[1]);
             this.hostIp = reason[1];
+        } else {
+            this.hostIp = null;
         }
     }
 
