@@ -3,8 +3,8 @@
   "id": "jasonmod",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "50.012 Group 9 Host Transfer Mod",
+  "description": "Enables host transfer functionality for the Minecraft Client",
   "authors": [
     "Me!"
   ],
