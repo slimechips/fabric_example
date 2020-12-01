@@ -53,9 +53,7 @@ public abstract class ClientPlayNetworkHandlerMixin implements HostTransfer {
             this.hostIp = null;
             return;
         }
-        LOGGER.info(packet.getReason().getString());
-
-        String[] reason = packet.getReason().getString().split("=");
+        String[] reason = packet.getReason().asString().split("=");
         if (reason[0].equals("host_transfer") && reason.length == 2)
         {
             LOGGER.info("Initiating host transfer to" + reason[1]);
